@@ -7,9 +7,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 const encryptionKey = Buffer.from('6721F8BF054AE14B37B191B0CC1F7C250940B59B22D47DA21804002EEBC7396C', 'hex'); // Replace with your actual encryption key
 
-// Middleware to parse both JSON bodies and raw bodies
+// Middleware to parse JSON bodies, raw bodies, and URL-encoded bodies
 app.use(bodyParser.json({ limit: '100kb' }));
 app.use(bodyParser.raw({ type: 'text/plain', limit: '100kb' }));
+app.use(bodyParser.urlencoded({ extended: true })); // Added middleware to handle URL-encoded payloads
 
 // Simple logging setup using winston
 const logger = winston.createLogger({
@@ -57,7 +58,7 @@ app.post('/pp-hosted/secure/webhook', (req, res) => {
     } else {
       logger.info('Processing unencrypted webhook.');
 
-      // Process the unencrypted JSON payload directly
+      // Process the unencrypted JSON or URL-encoded payload directly
       webhookPayload = req.body;
     }
 
