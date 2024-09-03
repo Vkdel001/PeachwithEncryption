@@ -18,7 +18,7 @@ app.post('/pp-hosted/secure/webhook', (req, res) => {
 
     const ivfromHttpHeader = req.headers['x-initialization-vector'];
     const authTagFromHttpHeader = req.headers['x-authentication-tag'];
-    const httpBody = request.body.encryptedBody;   
+    const httpBody = req.body.encryptedBody;   
 
     // Log the extracted values to ensure they are correct
 
