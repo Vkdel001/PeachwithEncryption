@@ -5,7 +5,7 @@ const crypto = require('crypto');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const encryptionKey = Buffer.from('6721F8BF054AE14B37B191B0CC1F7C250940B59B22D47DA21804002EEBC7396C', 'hex'); // Replace with your actual encryption key
+const encryptionKey = '6721F8BF054AE14B37B191B0CC1F7C250940B59B22D47DA21804002EEBC7396C'
 
 // Middleware to parse JSON bodies, raw bodies, and URL-encoded bodies
 app.use(bodyParser.json({ limit: '100kb' }));
