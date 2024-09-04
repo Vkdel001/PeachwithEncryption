@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Your encryption key (replace with the actual key)
-const secretFromConfiguration = "000102030405060708090a0b0c0d0e0f000102030405060708090a0b0c0d0e0f";
+const secretFromConfiguration = "6721F8BF054AE14B37B191B0CC1F7C250940B59B22D47DA21804002EEBC7396C";
 
 // Middleware to handle URL-encoded bodies
 app.use(bodyParser.json({ limit: '100kb' }));
