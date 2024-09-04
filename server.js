@@ -9,6 +9,8 @@ const port = process.env.PORT || 3000;
 const secretFromConfiguration = "000102030405060708090a0b0c0d0e0f000102030405060708090a0b0c0d0e0f";
 
 // Middleware to handle URL-encoded bodies
+app.use(bodyParser.json({ limit: '100kb' }));
+app.use(bodyParser.raw({ type: 'text/plain', limit: '100kb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/pp-hosted/secure/webhook', (req, res) => {
