@@ -47,7 +47,7 @@ app.post('/pp-hosted/secure/webhook', (req, res) => {
     if (iv && authTag) {
       logger.info('Processing encrypted webhook.');
 
-      const encryptedData = req.body.toString('hex'); // Convert raw buffer to hex string
+      const encryptedData = req.body.encryptedBody.toString('hex'); // Convert raw buffer to hex string
 
       // Decrypt the data
       const decryptedData = decrypt(encryptedData, iv, authTag);
